@@ -1,0 +1,10 @@
+{
+    "[mcmeta]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "editor.tabSize": 4,
+    "[json]": {
+        "editor.formatOnSave": true,
+        "files.insertFinalNewline": true
+    }
+}

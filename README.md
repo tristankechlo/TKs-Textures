@@ -4,7 +4,16 @@
 [![Modrinth](https://img.shields.io/modrinth/dt/c3gpeDZt?style=for-the-badge&logo=modrinth&color=e05d44)](https://modrinth.com/datapack/tks-textures)&nbsp;
 [![Discord](https://img.shields.io/discord/639540436524072970?style=for-the-badge&logo=discord&logoColor=fff&label=%20&color=0a48c4)](https://discord.gg/bhUaWhq)
 
-Changes textures:
-- spyglass more transparent
-- rainbow xp-bar
-- stained glass more transparent
+Sleek visuals for a better gameplay
+
+---
+
+Following changes are currently included in the pack:
+- spyglass-view now only shows the border, making it more transparent
+- all stained glass blocks are now more transparent (removed the semi translucent parts)
+- the experience bar is now rainbow colored
+
+---
+
+<img src="https://i.ibb.co/sd51Tkr9/glass-compare.png" alt="glass-compare" width="250" />
+<img src="https://i.ibb.co/Pvp4hnzZ/spyglass-compare.png" alt="spyglass-compare" width="500" />

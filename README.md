@@ -15,5 +15,5 @@ Following changes are currently included in the pack:
 
 ---
 
-<img src="https://i.ibb.co/sd51Tkr9/glass-compare.png" alt="glass-compare" width="250" />
-<img src="https://i.ibb.co/Pvp4hnzZ/spyglass-compare.png" alt="spyglass-compare" width="500" />
+<img src="/images/glass_compare.png" alt="glass-compare" width="250" />
+<img src="/images/spyglass_compare.png" alt="spyglass-compare" width="500" />

@@ -17,16 +17,17 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v4
 
-      - name: get the name from pack.json
+      - name: calculate versions
         id: props
-        shell: bash
-        run: |
-            echo "name=$(cat pack.json | jq '.name' | tr -d '"')" >> $GITHUB_OUTPUT
-            echo "version=$(cat pack.json | jq '.version' | tr -d '"')" >> $GITHUB_OUTPUT
-            echo "mc-version=$(cat pack.json | jq '.mc_version' | tr -d '"')" >> $GITHUB_OUTPUT
+        uses: christian-draeger/read-properties@1.1.1
+        with:
+          path: 'pack.properties'
+          properties: 'name version mc_version version_range'
 
       - name: create zip archive
-        run: bash ./.github/archive.sh
+        run: git archive -o $FILENAME --add-file "./LICENSE" HEAD:src
+        env:
+            FILENAME: "${{ steps.props.outputs.name }}-${{ steps.props.outputs.mc_version }}-${{ steps.props.outputs.version }}.zip"
 
       - name: Add files to GitHub-Release
         uses: shogo82148/actions-upload-release-asset@v1.7.5
@@ -42,8 +43,8 @@ jobs:
             modrinth-featured: true
             modrinth-unfeature-mode: intersection
             modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-            modrinth-name: "${{ steps.props.outputs.mc-version }} - ${{ steps.props.outputs.version }}"
-            modrinth-version: "${{ steps.props.outputs.mc-version }}-${{ steps.props.outputs.version }}"
+            modrinth-name: "${{ steps.props.outputs.mc_version }} - ${{ steps.props.outputs.version }}"
+            modrinth-version: "${{ steps.props.outputs.mc_version }}-${{ steps.props.outputs.version }}"
             curseforge-id: ${{ env.CURSEFORGE_ID }}
             curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
             curseforge-name: ""
@@ -52,5 +53,5 @@ jobs:
             loaders: minecraft
             files: "./${{ steps.props.outputs.name }}-*.zip"
             changelog:  "${{ github.event.release.body }}"
-            game-versions: "${{ steps.props.outputs.mc-version }}"
+            game-versions: "${{ steps.props.outputs.version_range }}"
             game-version-filter: "releases"

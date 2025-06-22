@@ -1,6 +1,10 @@
 {
     "pack": {
-        "pack_format": 15,
-        "description": "TK's Textures"
+        "description": "TK's Textures",
+        "pack_format": 22,
+        "supported_formats": {
+            "min_inclusive": 22,
+            "max_inclusive": 32
+        }
     }
 }
